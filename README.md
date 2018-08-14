@@ -47,19 +47,37 @@ Toy-Robot Application Exercising Guide
 
 	WARNING: Both X and Y coordinates should be between 0 and 4 !!!
 	
-6.) If characters ( except numbers ) are entered as coordinates in the PLACE command, it'll show a warning message like below.
+6.)If a MOVE command causes the robot to fall off the table space, it'll show a warning message like below.
+
+	Ex: PLACE 1,1,NORTH
+		MOVE
+		MOVE
+		MOVE
+		REPORT
+
+		Robot's location on the table space :
+		X Coordinate     : 1
+		Y Coordinate     : 4
+		Facing direction : NORTH
+
+		MOVE
+
+		WARNING: This move causes the robot to fall off the table. Please try a different move !!!
+
+	
+7.) If characters ( except numbers ) are entered as coordinates in the PLACE command, it'll show a warning message like below.
 	
 	Ex: PLACE a,3,EAST
 
 	WARNING: Coordinates should be integers !!!
 	
-7.) If an incorrect value is entered as the Face in the PLACE command, it'll show a warning message like below.
+8.) If an incorrect value is entered as the Face in the PLACE command, it'll show a warning message like below.
 
 	Ex: PLACE 1,1,TEST
 
 	WARNING: The facing direction should be NORTH, SOUTH, EAST, or WEST !!!
 	
-8.) If you enter an invalid command, even after entering a valid PLACE command, it'll show a warning message like below.
+9.) If you enter an invalid command, even after entering a valid PLACE command, it'll show a warning message like below.
 
     Ex: PLACE 2,3,EAST 
 	    TEST COMMAND

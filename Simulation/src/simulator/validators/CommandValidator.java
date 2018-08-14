@@ -1,5 +1,10 @@
 package simulator.validators;
 
+/**
+ * CommandValidator checks whether the given command is a defined command or not,
+ * by comparing it against the defined set of commands
+ *(PLACE X,Y,E , MOVE, LEFT, RIGHT or REPORT )
+ */
 public class CommandValidator {
 
     public boolean validateCommandType(String command)
@@ -16,11 +21,11 @@ public class CommandValidator {
             }
             catch (NumberFormatException nFE)
             {
-                System.out.println("\nCoordinates should be integers !");
+                System.out.println("\nWARNING: Coordinates should be integers !!!");
                 isValidCommand = false;
             }
         }
-        else if (command.equals("MOVE") || command.equals("LEFT") || command.equals("RIGHT") || command.equals("REPORT"))
+        else if (command.equals("MOVE") || command.equals("LEFT") || command.equals("RIGHT") || command.equals("REPORT") || command.equals(""))
         {
             isValidCommand = true;
         }

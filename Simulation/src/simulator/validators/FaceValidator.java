@@ -1,5 +1,8 @@
 package simulator.validators;
 
+/**
+ * FaceValidator checks whether the given value for F in the PLACE command is a correct direction or not
+ */
 public class FaceValidator {
 
     String north = "NORTH";
@@ -15,7 +18,7 @@ public class FaceValidator {
         }
         else
         {
-            System.out.println("\nThe facing direction should be NORTH, SOUTH, EAST, or WEST");
+            System.out.println("\nWARNING: The facing direction should be NORTH, SOUTH, EAST, or WEST !!!\n");
             return false;
         }
     }

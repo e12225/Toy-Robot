@@ -2,14 +2,13 @@ package simulator.validators;
 
 import simulator.processor.ValueHolder;
 
-public class PlaceCommandValidator {
+/**
+ * PlaceCommandValidator is used to check whether the PLACE command i.e, the first command
+ * is passed according to the correct format, 'PLACE X,Y,F'. There, it is checked whether X and Y are passed
+ * as integers and whether F is one of the valid directions(NORTH, EAST, SOUTH, WEST) or not
+ */
 
-    /**
-     * validateFirstCommand() method is used to check whether the PLACE command i.e, the first command
-     * is passed according to the correct format, 'PLACE X,Y,F'
-     * @param fCommand
-     * @return
-     */
+public class PlaceCommandValidator {
 
     boolean isValid = false;
     ValueHolder valueHolder = new ValueHolder();
@@ -42,7 +41,7 @@ public class PlaceCommandValidator {
             }
             catch(NumberFormatException nFE)
             {
-                System.out.println("\nCoordinates should be integers !");
+                System.out.println("\nWARNING: Coordinates should be integers !!!\n");
                 isValid = false;
             }
 

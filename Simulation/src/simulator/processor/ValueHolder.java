@@ -1,5 +1,8 @@
 package simulator.processor;
 
+/**
+ * ValueHolder maintains the attributes of the robot in terms of X,Y and F values.
+ */
 public class ValueHolder {
 
     private Integer x;

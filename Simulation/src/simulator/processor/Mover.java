@@ -1,5 +1,10 @@
 package simulator.processor;
 
+/**
+ * Mover is responsible for moving the robot towards the direction while increasing or decreasing the
+ * coordinate values, depending on the command given
+ */
+
 public class Mover {
 
     boolean success = false;

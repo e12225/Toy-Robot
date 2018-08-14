@@ -1,14 +1,14 @@
 package simulator.validators;
 
-public class CoordinateValidator {
+/**
+ * Since the table space is 5x5 space, maximum values of X and Y
+ * coordinates are 4. In case of the enlargement of the table space,
+ * we can simply change the values of max and min variables.
+ *
+ * Also, we can specify min & max values for X and Y separately as well.
+ */
 
-    /**
-     * Since the table space is 5x5 space, maximum values of X and Y
-     * coordinates are 5. In case of the enlargement of the table space,
-     * we can simple change the values of max and min variables.
-     *
-     * Also, we can specify min & max values for X and Y separately as well.
-     */
+public class CoordinateValidator {
 
     int max = 4;
     int min = 0;
@@ -21,7 +21,7 @@ public class CoordinateValidator {
         }
         else
         {
-            System.out.println("\nBoth X and Y coordinates should be between " + min + "and " + max);
+            System.out.println("\nWARNING: Both X and Y coordinates should be between " + min + " and " + max + " !!!\n");
             return false;
         }
     }

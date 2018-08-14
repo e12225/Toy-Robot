@@ -1,5 +1,10 @@
 package simulator.processor;
 
+/**
+ * Turner is responsible for turning the robot by 90 degrees to it's left side or right side,
+ * depending on the command given
+ */
+
 public class Turner {
 
     boolean success = false;

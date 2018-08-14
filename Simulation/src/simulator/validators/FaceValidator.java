@@ -15,7 +15,7 @@ public class FaceValidator {
         }
         else
         {
-            System.out.println("The facing direction should be NORTH, SOUTH, EAST, or WEST");
+            System.out.println("\nThe facing direction should be NORTH, SOUTH, EAST, or WEST");
             return false;
         }
     }

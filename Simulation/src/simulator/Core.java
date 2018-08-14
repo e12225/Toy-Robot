@@ -1,6 +1,8 @@
 package simulator;
 
-import simulator.validators.FirstCommandValidator;
+import simulator.validators.CommandValidator;
+import simulator.processor.NextCommandProcessor;
+import simulator.validators.PlaceCommandValidator;
 
 import java.util.Scanner;
 
@@ -17,19 +19,53 @@ public class Core {
         System.out.print("    |                   |\n");
         System.out.print("    |___________________|\n");
         System.out.println("(0,0)                   (5,0)\n");
-        System.out.print("Let's begin....\n");
-        System.out.print("\nPlace the robot on the table space :\n");
+        System.out.print("Let's begin....");
+        System.out.println("\nPlace the robot on the table space :\n");
 
         Scanner scanner = new Scanner(System.in);
+
         String firstCommand = scanner.nextLine();
+        PlaceCommandValidator placeCommandValidator = new PlaceCommandValidator();
 
-        FirstCommandValidator validtor = new FirstCommandValidator();
-
-        while ( !validtor.validateFirstCommand(firstCommand) )
+        while ( !placeCommandValidator.validatePlaceCommand(firstCommand) )
         {
-            //TODO: remove the while loop and put an if-else clause if required !
             System.out.print("Re-try placing the robot on the table space :\n");
             firstCommand = scanner.nextLine();
+        }
+
+        Integer current_X = placeCommandValidator.getValueHolder().getX();
+        Integer current_Y = placeCommandValidator.getValueHolder().getY();
+        String current_Face = placeCommandValidator.getValueHolder().getFace();
+
+        String command = scanner.nextLine();
+        while (command.equals(""))
+        {
+            command = scanner.nextLine();
+        }
+
+        CommandValidator commandValidator = new CommandValidator();
+        NextCommandProcessor nextCommandProcessor = new NextCommandProcessor();
+
+        while (commandValidator.validateCommandType(command))
+        {
+            while (command.equals(""))
+            {
+                command = scanner.nextLine();
+            }
+
+            nextCommandProcessor.processNextCommand(command, current_X, current_Y, current_Face);
+
+            current_X = nextCommandProcessor.getValueHolder().getX();
+            current_Y = nextCommandProcessor.getValueHolder().getY();
+            current_Face = nextCommandProcessor.getValueHolder().getFace();
+
+            command = scanner.nextLine();
+        }
+
+        if (!commandValidator.validateCommandType(command))
+        {
+            System.out.println("\nWARNING: Please enter a valid command. You can chose one of the followings !!!");
+            System.out.println("PLACE X,Y,F\nMOVE\nNORTH/SOUTH/EAST/WEST\nLEFT/RIGHT\nREPORT");
         }
     }
 }

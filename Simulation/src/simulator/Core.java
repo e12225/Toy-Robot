@@ -1,14 +1,10 @@
-package com.company;
+package simulator;
+
+import simulator.validators.FirstCommandValidator;
 
 import java.util.Scanner;
 
 public class Core {
-
-    //choices set
-    String move = "MOVE";
-    String left = "LEFT";
-    String right = "RIGHT";
-    String report = "REPORT";
 
     public static void main(String[] args) {
 

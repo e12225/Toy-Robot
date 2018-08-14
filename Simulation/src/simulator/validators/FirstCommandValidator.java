@@ -1,4 +1,4 @@
-package com.company;
+package simulator.validators;
 
 public class FirstCommandValidator {
 
@@ -18,13 +18,24 @@ public class FirstCommandValidator {
 
         boolean isValid = false;
 
+        FaceValidator faceValidator = new FaceValidator();
+        CoordinateValidator coordinateValidator = new CoordinateValidator();
+
         if ( fCommand.split(",").length == 3 && fCommand.split(",")[0].split(" ")[0].equals(place) )
         {
             try
             {
                 x_Coordinate = Integer.parseInt(fCommand.split(",")[0].split(" ")[1]);
                 y_Coordinate = Integer.parseInt(fCommand.split(",")[1]);
-                isValid = true;
+
+                if ( faceValidator.validateFace(fCommand.split(",")[2]) && coordinateValidator.validateCoordinates(x_Coordinate, y_Coordinate) )
+                {
+                    isValid = true;
+                }
+                else
+                {
+                    isValid = false;
+                }
             }
             catch(NumberFormatException nFE)
             {

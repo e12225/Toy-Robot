@@ -10,7 +10,7 @@ public class CoordinateValidator {
      * Also, we can specify min & max values for X and Y separately as well.
      */
 
-    int max = 5;
+    int max = 4;
     int min = 0;
 
     public boolean validateCoordinates(Integer x, Integer y)

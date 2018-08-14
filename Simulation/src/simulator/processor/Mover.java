@@ -7,7 +7,7 @@ public class Mover {
     public ValueHolder move(Integer x, Integer y, String face)
     {
         ValueHolder valueHolder = new ValueHolder();
-        int max = 5;
+        int max = 4;
         int min = 0;
 
         switch (face)
